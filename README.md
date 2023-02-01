@@ -1,5 +1,5 @@
 # Freepik API Challenge
-[![Deployment Pipeline](https://github.com/lucianobosco/freepik-challenge/actions/workflows/pipeline.yml/badge.svg)](https://github.com/lucianobosco/freepik-challenge/actions/workflows/pipeline.yml)
+[![CI Pipeline](https://github.com/lucianobosco/freepik-challenge/actions/workflows/pipeline.yml/badge.svg)](https://github.com/lucianobosco/freepik-challenge/actions/workflows/pipeline.yml)
 
 ## Architecture
 - This code is based on Slim 4 PHP Framework.
@@ -11,5 +11,5 @@
 1. Clone the repository
 2. Navigate to the project folder and run `Docker compose build`
 3. Run `Docker compose up`
-4. Hit `http://localhost:8080/country-check/it` in your browser
+4. Navigate to `http://localhost:8080/country-check/it` in your browser
 5. Expect a json response
