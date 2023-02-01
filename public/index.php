@@ -13,10 +13,19 @@ require __DIR__ . '/../vendor/autoload.php';
 $container = new Container();
 $app = SlimAppFactory::create($container);
 
+// Routes
 $app->get('/country-check/{code}', [CountryController::class, 'checkCountry']);
 $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Hello world!");
     return $response;
 });
+
+// Add Routing Middleware
+$app->addRoutingMiddleware();
+
+// Force errorHandler to return json content type
+$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$errorHandler = $errorMiddleware->getDefaultErrorHandler();
+$errorHandler->forceContentType('application/json');
 
 $app->run();
