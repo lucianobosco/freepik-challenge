@@ -15,3 +15,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN git config --global user.email "lucianobosco@gmail.com" \
     && git config --global user.name "Luciano Bosco"
+
+# Create a group and user
+RUN adduser -D -u ${uid} ${user} \
+    && chown -R ${group}:${group} /var/www/
+
+USER $user

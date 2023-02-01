@@ -11,24 +11,15 @@ use App\Context\Country\Domain\Criteria;
 use Faker\Factory;
 use PHPUnit\Framework\TestCase;
 
-use Monolog\Level;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
 /**
  * @group unit
  */
 class CriteriaTest extends TestCase
 {
-    protected $logger;
     protected $rival;
 
     protected function setUp(): void
     {
-        $this->logger = new Logger('app');
-        $streamHandler = new StreamHandler('public/test.log', Level::Debug);
-        $this->logger->pushHandler($streamHandler);
-
         $faker = Factory::create();
 
         $this->rival = new Country(

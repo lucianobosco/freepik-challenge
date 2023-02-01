@@ -6,6 +6,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use DI\Bridge\Slim\Bridge as SlimAppFactory;
+use Monolog\Handler\StreamHandler;
+use Monolog\Level;
+use Monolog\Logger;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -23,8 +26,13 @@ $app->get('/', function (Request $request, Response $response, $args) {
 // Add Routing Middleware
 $app->addRoutingMiddleware();
 
+// Monolog Example
+$logger = new Logger('app');
+$streamHandler = new StreamHandler(dirname(__FILE__, 2).'/logs/slim.log', Level::Debug);
+$logger->pushHandler($streamHandler);
+
 // Force errorHandler to return json content type
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$errorMiddleware = $app->addErrorMiddleware(true, true, true, $logger);
 $errorHandler = $errorMiddleware->getDefaultErrorHandler();
 $errorHandler->forceContentType('application/json');
 

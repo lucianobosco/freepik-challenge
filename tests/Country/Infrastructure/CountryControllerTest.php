@@ -8,9 +8,6 @@ use App\Context\Country\Domain\Criteria;
 use App\Context\Country\Domain\Exceptions\InvalidLengthException;
 use App\Context\Country\Domain\Exceptions\InvalidTypeException;
 use Mockery;
-use Monolog\Handler\StreamHandler;
-use Monolog\Level;
-use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,15 +15,10 @@ use PHPUnit\Framework\TestCase;
  */
 class CountryControllerTest extends TestCase
 {
-    protected $logger;
     protected $countryCheckerMock;
 
     protected function setUp(): void
     {
-        $this->logger = new Logger('app');
-        $streamHandler = new StreamHandler('public/test.log', Level::Debug);
-        $this->logger->pushHandler($streamHandler);
-
         $this->countryCheckerMock = Mockery::mock(CountryChecker::class);
         $this->countryCheckerMock
             ->shouldReceive('__invoke')
