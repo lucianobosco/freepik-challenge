@@ -5,9 +5,9 @@ services:
     container_name: slim_php
     build:
       args:
-          user: slim
-          group: www-data
-          uid: 1000
+        user: slim
+        group: www-data
+        uid: 1000
       context: ./docker/php
     ports:
       - '9000:9000'

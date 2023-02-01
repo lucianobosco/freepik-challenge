@@ -1,5 +1,9 @@
 FROM php:8.1-fpm
 
+ARG uid
+ARG user
+ARG group
+
 RUN apt update \
     && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip libpq-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
@@ -17,7 +21,7 @@ RUN git config --global user.email "lucianobosco@gmail.com" \
     && git config --global user.name "Luciano Bosco"
 
 # Create a group and user
-RUN adduser -D -u ${uid} ${user} \
+RUN useradd -G www-data,root -u ${uid} -d /home/${user} ${user} \
     && chown -R ${group}:${group} /var/www/
 
 USER $user
