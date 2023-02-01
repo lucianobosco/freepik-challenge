@@ -1,12 +1,13 @@
 # Freepik API Challenge
+[![Deployment Pipeline](https://github.com/lucianobosco/freepik-challenge/actions/workflows/pipeline.yml/badge.svg)](https://github.com/lucianobosco/freepik-challenge/actions/workflows/pipeline.yml)
 
-# Architecture
+## Architecture
 - This code is based on Slim 4 PHP Framework.
 - Development environment uses Docker + Nginx + PHP 8.1
 - Code Integration with Github actions
 - Swagger-PHP for endpoints documentation. File located in root folder `openapi.yaml` and must be read in https://editor.swagger.io/
 
-# Instructions
+## Instructions
 1. Clone the repository
 2. Navigate to the project folder and run `Docker compose build`
 3. Run `Docker compose up`
