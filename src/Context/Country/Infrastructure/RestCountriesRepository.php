@@ -9,13 +9,14 @@ use App\Context\Country\Domain\CountryCode;
 use App\Context\Country\Domain\CountryName;
 use App\Context\Country\Domain\CountryPopulation;
 use App\Context\Country\Domain\CountryRegion;
+use App\Context\Country\Domain\CountryRepository;
 use App\Context\Country\Infrastructure\Exceptions\NotFoundException;
 use App\Context\Country\Infrastructure\Exceptions\RestApiConnectException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 
-class RestCountriesRepository
+class RestCountriesRepository implements CountryRepository
 {
     public function getByCode(CountryCode $code): ?Country
     {
