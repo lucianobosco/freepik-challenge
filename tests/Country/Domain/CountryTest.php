@@ -28,7 +28,7 @@ class CountryTest extends TestCase
             new CountryName($faker->city),
             new CountryCode($faker->lexify('???')),
             new CountryRegion($faker->country),
-            new CountryPopulation($faker->randomNumber()),
+            new CountryPopulation((int) $faker->randomNumber()),
         );
 
         $this->assertInstanceOf(Country::class, $country);
