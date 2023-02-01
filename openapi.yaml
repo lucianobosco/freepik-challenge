@@ -1,0 +1,21 @@
+openapi: 3.0.0
+info:
+  title: 'Freepik Challenge API'
+  version: '1.0'
+paths:
+  /country-check:
+    get:
+      tags:
+        - Country
+      operationId: fd3f7e9651e877e2fd6b43065fc2def4
+      parameters:
+        -
+          name: code
+          in: query
+          description: 'Country code to search by'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'The country Criteria'

@@ -4,7 +4,6 @@ use App\Context\Country\Infrastructure\CountryController;
 use DI\Container;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Factory\AppFactory;
 use DI\Bridge\Slim\Bridge as SlimAppFactory;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;

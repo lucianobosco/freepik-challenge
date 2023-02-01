@@ -11,8 +11,35 @@ use App\Context\Country\Infrastructure\Exceptions\RestApiConnectException;
 use App\Context\Country\Infrastructure\RestCountriesRepository;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * @OA\Info(
+ *     title="Freepik Challenge API",
+ *     version="1.0"
+ * )
+ */
+
 class CountryController
 {
+    /**
+     * @OA\Get(
+     *      path="/country-check",
+     *      tags={"Country"},
+     *      @OA\Parameter(
+     *          name="code",
+     *          in="query",
+     *          required=true,
+     *          description="Country code to search by",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *         response="200",
+     *         description="The country Criteria"
+     *      )
+     * )
+     */
+
     public function checkCountry(ResponseInterface $response, $code): ResponseInterface
     {
         try {
