@@ -1,0 +1,33 @@
+{
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6",
+        "php-di/php-di": "^7.0",
+        "php-di/slim-bridge": "^3.3",
+        "fakerphp/faker": "^1.21",
+        "guzzlehttp/guzzle": "^7.0",
+        "monolog/monolog": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "nekofar/slim-test": "^2.0",
+        "mockery/mockery": "^1.5"
+    },
+    "scripts": {
+        "test": "phpunit tests --colors auto",
+        "test:unit": "phpunit tests --group unit --colors auto",
+        "test:feature": "phpunit tests --group feature --colors auto",
+        "test:adapter": "phpunit tests --group adapter --colors auto",
+        "test:e2e": "phpunit tests --group e2e --colors auto"
+    },
+    "autoload-dev": {
+        "psr-7": {
+            "Tests\\": "tests/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
