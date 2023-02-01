@@ -9,8 +9,6 @@ use DI\Bridge\Slim\Bridge as SlimAppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = AppFactory::create();
-
 // Create a new container for dependency injection
 $container = new Container();
 $app = SlimAppFactory::create($container);
